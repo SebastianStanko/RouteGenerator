@@ -1,9 +1,6 @@
 package pl.testuj.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -24,7 +21,7 @@ public class RouteCreatorController {
     private ChoiceBox<String> chargingCB;
 
     @FXML
-    private TextField batteryLevelTF;
+    private TextField batteryPowerTF;
 
     @FXML
     private TextField speedTF;
@@ -74,11 +71,12 @@ public class RouteCreatorController {
 
     @FXML
     private void createPoint() {
-        FormValidator formValidator = new FormValidator();
+        FormValidator formValidator = new FormValidator(this);
         if(formValidator.isFormValid()){
             System.out.println("Przszło");
+        }else {
+            System.out.println("Nie przeszło");
         }
-        System.out.println("Nie przeszło");
 
     }
 
@@ -104,8 +102,8 @@ public class RouteCreatorController {
         return chargingCB;
     }
 
-    public TextField getBatteryLevelTF() {
-        return batteryLevelTF;
+    public TextField getBatteryPowerTF() {
+        return batteryPowerTF;
     }
 
     public TextField getSpeedTF() {

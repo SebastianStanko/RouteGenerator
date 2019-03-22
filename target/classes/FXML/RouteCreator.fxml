@@ -14,7 +14,7 @@
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poziom baterii" />
       <Text layoutX="150.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ładowanie" />
       <ChoiceBox fx:id="chargingCB" layoutX="219.0" layoutY="10.0" prefHeight="25.0" prefWidth="95.0" />
-      <TextField fx:id="batteryLevelTF" layoutX="66.0" layoutY="10.0" prefHeight="25.0" prefWidth="40.0" text="100" />
+      <TextField fx:id="batteryPowerTF" layoutX="100.0" layoutY="10.0" prefHeight="25.0" prefWidth="40.0" text="100" />
       <Text layoutX="14.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prędkość" />
       <Text layoutX="113.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kierunek" />
       <Text layoutX="219.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dokładność" />
