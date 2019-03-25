@@ -1,11 +1,16 @@
 package pl.testuj.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import pl.testuj.service.Point;
 import pl.testuj.validators.FormValidator;
+
+import java.time.LocalDate;
 
 public class RouteCreatorController {
 
@@ -59,9 +64,13 @@ public class RouteCreatorController {
     @FXML
     private ChoiceBox<String> countryCB;
 
+    public LocalDate currentDate;
+
+    private int pointID;
+
     @FXML
-    public void initialize(){
-//        loadData();
+    public void initialize() {
+        loadData();
     }
 
     @FXML
@@ -72,33 +81,36 @@ public class RouteCreatorController {
     @FXML
     private void createPoint() {
         FormValidator formValidator = new FormValidator(this);
-        if(formValidator.isFormValid()){
+        if (formValidator.isFormValid()) {
             System.out.println("Przszło");
-        }else {
+
+            Point point = new Point(this);
+            point.create();
+
+            System.out.println(point);
+        } else {
             System.out.println("Nie przeszło");
         }
-
     }
 
-//    private void loadData(){
-//        ObservableList<String> chargingCBOptions = FXCollections.observableArrayList("true", "false");
-//        ObservableList<String> typeCBOptions = FXCollections.observableArrayList("start", "broadcast", "end");
-//        ObservableList<String> countryCBOptions = FXCollections.observableArrayList("Polska", "Niemcy", "Francja");
-//
-//        chargingCB.getItems().addAll(chargingCBOptions);
-//        chargingCB.setValue(chargingCBOptions.get(0));
-//        typeCB.getItems().addAll(typeCBOptions);
-//        typeCB.setValue(typeCBOptions.get(0));
-//        countryCB.getItems().addAll(countryCBOptions);
-//        countryCB.setValue(countryCBOptions.get(0));
-//
-//    }
+    private void loadData() {
+        ObservableList<String> chargingCBOptions = FXCollections.observableArrayList("true", "false");
+        ObservableList<String> typeCBOptions = FXCollections.observableArrayList("START", "BROADCAST", "END");
+        ObservableList<String> countryCBOptions = FXCollections.observableArrayList("Polska", "Niemcy", "Francja");
+
+        chargingCB.getItems().addAll(chargingCBOptions);
+        chargingCB.setValue(chargingCBOptions.get(0));
+        typeCB.getItems().addAll(typeCBOptions);
+        typeCB.setValue(typeCBOptions.get(0));
+        countryCB.getItems().addAll(countryCBOptions);
+        countryCB.setValue(countryCBOptions.get(0));
+    }
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
 
-    public ChoiceBox<?> getChargingCB() {
+    public ChoiceBox<String> getChargingCB() {
         return chargingCB;
     }
 
@@ -118,7 +130,7 @@ public class RouteCreatorController {
         return accuracyTF;
     }
 
-    public ChoiceBox<?> getTypeCB() {
+    public ChoiceBox<String> getTypeCB() {
         return typeCB;
     }
 
@@ -146,8 +158,24 @@ public class RouteCreatorController {
         return additionalMinuteTF;
     }
 
-    public ChoiceBox<?> getCountryCB() {
+    public ChoiceBox<String> getCountryCB() {
         return countryCB;
+    }
+
+    public LocalDate getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(LocalDate currentDate) {
+        this.currentDate = currentDate;
+    }
+
+    public int getPointID() {
+        return pointID;
+    }
+
+    public void setPointID(int pointID) {
+        this.pointID = pointID;
     }
 }
 
