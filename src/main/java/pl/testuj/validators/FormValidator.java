@@ -17,33 +17,13 @@ public class FormValidator {
                 isAccuracyInputValid() &&
                 isAdditionalMinuteInputValid() &&
                 isAdditionalHourInputValid() &&
-                isAdditionalDayInputValid() &&
-                isAdditionalMonthInputValid() &&
-                isAdditionalYearInputValid();
-    }
-
-    private boolean isAdditionalYearInputValid(){
-        String additionalYears = routeCreatorController.getAdditionalYearTF().getText();
-        double min = 0;
-        double max = 100;
-        return (isNumber(additionalYears) &&
-                minValue(additionalYears, min) &&
-                maxValue(additionalYears, max));
-    }
-
-    private boolean isAdditionalMonthInputValid(){
-        String additionalMonths = routeCreatorController.getAdditionalMonthTF().getText();
-        double min = 0;
-        double max = 11;
-        return (isNumber(additionalMonths) &&
-                minValue(additionalMonths, min) &&
-                maxValue(additionalMonths, max));
+                isAdditionalDayInputValid();
     }
 
     private boolean isAdditionalDayInputValid(){
         String additionalDays = routeCreatorController.getAdditionalDayTF().getText();
         double min = 0;
-        double max = 31;
+        double max = 100;
         return (isNumber(additionalDays) &&
                 minValue(additionalDays, min) &&
                 maxValue(additionalDays, max));

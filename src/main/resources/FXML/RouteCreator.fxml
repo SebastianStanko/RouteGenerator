@@ -28,14 +28,10 @@
       <TextField fx:id="registrationNumberTF" layoutX="234.0" layoutY="87.0" prefHeight="25.0" prefWidth="95.0" text="XX12345" />
       <Text layoutX="16.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data ostatniego pakietu" />
       <Text fx:id="actualDateText" layoutX="149.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="----Data----" wrappingWidth="140.13671875" />
-      <TextField fx:id="additionalYearTF" layoutX="86.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
-      <TextField fx:id="additionalMonthTF" layoutX="119.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
       <TextField fx:id="additionalDayTF" layoutX="153.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
       <TextField fx:id="additionalHourTF" layoutX="229.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
       <TextField fx:id="additionalMinuteTF" layoutX="267.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
       <Text layoutX="16.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj czas" />
-      <Text layoutX="89.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rok" />
-      <Text layoutX="123.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mies" />
       <Text layoutX="157.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzień" />
       <Text layoutX="230.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Godz" />
       <Text layoutX="271.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />

@@ -3,24 +3,19 @@ package pl.testuj.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import pl.testuj.service.Point;
+import pl.testuj.utils.DateHandler;
+import pl.testuj.utils.Parser;
 import pl.testuj.validators.FormValidator;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
 
 public class RouteCreatorController {
 
     private MainController mainController;
-
-    @FXML
-    private Button createPointBtn;
-
-    @FXML
-    private Button backFromRouteCreator;
 
     @FXML
     private ChoiceBox<String> chargingCB;
@@ -47,12 +42,6 @@ public class RouteCreatorController {
     private Text actualDateText;
 
     @FXML
-    private TextField additionalYearTF;
-
-    @FXML
-    private TextField additionalMonthTF;
-
-    @FXML
     private TextField additionalDayTF;
 
     @FXML
@@ -64,7 +53,7 @@ public class RouteCreatorController {
     @FXML
     private ChoiceBox<String> countryCB;
 
-    public LocalDate currentDate;
+    private Timestamp currentDate;
 
     private int pointID;
 
@@ -82,11 +71,12 @@ public class RouteCreatorController {
     private void createPoint() {
         FormValidator formValidator = new FormValidator(this);
         if (formValidator.isFormValid()) {
-            System.out.println("Przszło");
-
+            DateHandler dateHandler = new DateHandler(this);
+            Parser parser = new Parser(this);
+            dateHandler.addTime(parser.parseDays(),parser.parseHours(),parser.parseMinutes());
             Point point = new Point(this);
             point.create();
-
+            actualDateText.setText(currentDate.toString());
             System.out.println(point);
         } else {
             System.out.println("Nie przeszło");
@@ -96,7 +86,9 @@ public class RouteCreatorController {
     private void loadData() {
         ObservableList<String> chargingCBOptions = FXCollections.observableArrayList("true", "false");
         ObservableList<String> typeCBOptions = FXCollections.observableArrayList("START", "BROADCAST", "END");
-        ObservableList<String> countryCBOptions = FXCollections.observableArrayList("Polska", "Niemcy", "Francja");
+        ObservableList<String> countryCBOptions = FXCollections.observableArrayList
+                ("Austria", "Belgia", "Chorwacja", "Czechy","Francja","Hiszpania","Holandia","Niemcy",
+                        "Polska", "Portugalia", "Słowacja", "Słowenia", "Szwajcaria", "Węgry", "Włochy");
 
         chargingCB.getItems().addAll(chargingCBOptions);
         chargingCB.setValue(chargingCBOptions.get(0));
@@ -138,14 +130,6 @@ public class RouteCreatorController {
         return registrationNumberTF;
     }
 
-    public TextField getAdditionalYearTF() {
-        return additionalYearTF;
-    }
-
-    public TextField getAdditionalMonthTF() {
-        return additionalMonthTF;
-    }
-
     public TextField getAdditionalDayTF() {
         return additionalDayTF;
     }
@@ -162,20 +146,20 @@ public class RouteCreatorController {
         return countryCB;
     }
 
-    public LocalDate getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(LocalDate currentDate) {
-        this.currentDate = currentDate;
-    }
-
     public int getPointID() {
         return pointID;
     }
 
     public void setPointID(int pointID) {
         this.pointID = pointID;
+    }
+
+    public Timestamp getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(Timestamp currentDate) {
+        this.currentDate = currentDate;
     }
 }
 

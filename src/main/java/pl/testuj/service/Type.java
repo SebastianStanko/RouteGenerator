@@ -5,8 +5,7 @@ public enum Type {
 
     private String description;
 
-    private Type(String description){
+    Type(String description){
         this.description = description;
     }
-
 }
