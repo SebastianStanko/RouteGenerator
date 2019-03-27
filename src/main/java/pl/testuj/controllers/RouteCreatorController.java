@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.json.JSONException;
 import pl.testuj.service.Point;
 import pl.testuj.utils.DateHandler;
+import pl.testuj.utils.JSONHandler;
 import pl.testuj.utils.Parser;
 import pl.testuj.validators.FormValidator;
 
@@ -67,8 +69,10 @@ public class RouteCreatorController {
         mainController.loadMenuScreen();
     }
 
+    JSONHandler handler = new JSONHandler();
+
     @FXML
-    private void createPoint() {
+    private void createPoint() throws JSONException {
         FormValidator formValidator = new FormValidator(this);
         if (formValidator.isFormValid()) {
             DateHandler dateHandler = new DateHandler(this);
@@ -76,11 +80,18 @@ public class RouteCreatorController {
             dateHandler.addTime(parser.parseDays(),parser.parseHours(),parser.parseMinutes());
             Point point = new Point(this);
             point.create();
+            handler.list.add(point);
+
             actualDateText.setText(currentDate.toString());
             System.out.println(point);
         } else {
             System.out.println("Nie przeszło");
         }
+    }
+
+    @FXML
+    private void endRoute() throws JSONException {
+        System.out.println(handler.toJsonArray());
     }
 
     private void loadData() {

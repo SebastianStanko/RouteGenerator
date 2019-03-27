@@ -9,8 +9,8 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.testuj.controllers.RouteCreatorController">
    <children>
-      <Button fx:id="createPointBtn" layoutX="123.0" layoutY="336.0" mnemonicParsing="false" onAction="#createPoint" text="Utwórz punkt" />
-      <Button fx:id="backFromRouteCreator" layoutX="120.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Wróć do menu" />
+      <Button fx:id="createPointBtn" layoutX="226.0" layoutY="230.0" mnemonicParsing="false" onAction="#createPoint" prefHeight="65.0" prefWidth="110.0" text="Utwórz punkt" />
+      <Button fx:id="backFromRouteCreator" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Wróć do menu" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poziom baterii" />
       <Text layoutX="150.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ładowanie" />
       <ChoiceBox fx:id="chargingCB" layoutX="219.0" layoutY="10.0" prefHeight="25.0" prefWidth="95.0" />
@@ -37,5 +37,6 @@
       <Text layoutX="271.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
       <Text layoutX="19.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lokalizacja punktu" />
       <ChoiceBox fx:id="countryCB" layoutX="120.0" layoutY="196.0" prefHeight="25.0" prefWidth="95.0" />
+      <Button fx:id="endRoute" layoutX="245.0" layoutY="361.0" mnemonicParsing="false" onAction="#endRoute" text="Zakończ trasę" />
    </children>
 </Pane>

@@ -2,6 +2,11 @@ package pl.testuj.service;
 
 import pl.testuj.controllers.RouteCreatorController;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class Point {
 
     private int sourceId;
@@ -53,6 +58,66 @@ public class Point {
                 ", longitude=" + longitude +
                 ", altitude=" + altitude +
                 '}';
+    }
+
+    public String getDateString() {
+        return getDateString("yyyy-MM-dd HH:mm:ss");
+    }
+
+    public String getDateString(String format) {
+        DateFormat sdf = new SimpleDateFormat(format);
+//        sdf.setTimeZone(TimeZone.getTimeZone(timezone));
+        Date date = new Date(getTrackedAt());
+
+        return sdf.format(date);
+    }
+
+    public int getSourceId() {
+        return sourceId;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public Long getTrackedAt() {
+        return trackedAt;
+    }
+
+    public int getBatteryPower() {
+        return batteryPower;
+    }
+
+    public boolean isCharging() {
+        return charging;
+    }
+
+    public String getRegistrationNumber() {
+        return registrationNumber;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public int getHeading() {
+        return heading;
+    }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public double getAltitude() {
+        return altitude;
     }
 
     public void setSourceId(int sourceId) {
