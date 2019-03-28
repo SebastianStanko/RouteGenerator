@@ -2,14 +2,18 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.testuj.controllers.RouteCreatorController">
    <children>
-      <Button fx:id="createPointBtn" layoutX="226.0" layoutY="230.0" mnemonicParsing="false" onAction="#createPoint" prefHeight="65.0" prefWidth="110.0" text="Utwórz punkt" />
+      <Button fx:id="createPointBtn" layoutX="227.0" layoutY="176.0" mnemonicParsing="false" onAction="#createPoint" prefHeight="17.0" prefWidth="110.0" text="Utwórz punkt" />
       <Button fx:id="backFromRouteCreator" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Wróć do menu" />
       <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Poziom baterii" />
       <Text layoutX="150.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ładowanie" />
@@ -28,15 +32,31 @@
       <TextField fx:id="registrationNumberTF" layoutX="234.0" layoutY="87.0" prefHeight="25.0" prefWidth="95.0" text="XX12345" />
       <Text layoutX="16.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data ostatniego pakietu" />
       <Text fx:id="actualDateText" layoutX="149.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="----Data----" wrappingWidth="140.13671875" />
-      <TextField fx:id="additionalDayTF" layoutX="153.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
-      <TextField fx:id="additionalHourTF" layoutX="229.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
-      <TextField fx:id="additionalMinuteTF" layoutX="267.0" layoutY="150.0" prefHeight="25.0" prefWidth="29.0" text="00" />
+      <TextField fx:id="additionalDayTF" layoutX="122.0" layoutY="146.0" prefHeight="25.0" prefWidth="29.0" text="00" />
+      <TextField fx:id="additionalHourTF" layoutX="201.0" layoutY="146.0" prefHeight="25.0" prefWidth="29.0" text="00" />
+      <TextField fx:id="additionalMinuteTF" layoutX="276.0" layoutY="146.0" prefHeight="25.0" prefWidth="29.0" text="00" />
       <Text layoutX="16.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dodaj czas" />
-      <Text layoutX="157.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzień" />
-      <Text layoutX="230.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Godz" />
-      <Text layoutX="271.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
-      <Text layoutX="19.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lokalizacja punktu" />
-      <ChoiceBox fx:id="countryCB" layoutX="120.0" layoutY="196.0" prefHeight="25.0" prefWidth="95.0" />
+      <Text layoutX="85.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzień" />
+      <Text layoutX="162.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Godz" />
+      <Text layoutX="245.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Min" />
+      <Text layoutX="12.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lokalizacja punktu" />
+      <ChoiceBox fx:id="countryCB" layoutX="115.0" layoutY="176.0" prefHeight="25.0" prefWidth="95.0" />
       <Button fx:id="endRoute" layoutX="245.0" layoutY="361.0" mnemonicParsing="false" onAction="#endRoute" text="Zakończ trasę" />
+      <Button fx:id="deleteLastPointBtn" layoutX="120.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteLastPoint" text="Usuń ostatni punkt" />
+      <ScrollPane layoutX="13.0" layoutY="205.0" prefHeight="150.0" prefWidth="325.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="200.0" prefWidth="310.0">
+                    <columns>
+                      <TableColumn fx:id="dateColumn" prefWidth="147.0" text="Data" />
+                      <TableColumn fx:id="countryColumn" prefWidth="96.0" text="Kraj" />
+                       <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Typ" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </Pane>

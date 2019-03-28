@@ -14,7 +14,7 @@ public class NewRouteController {
     @FXML
     private DatePicker firstDate;
 
-    private Timestamp timestamp;
+    private Timestamp startRouteDate;
 
     private MainController mainController;
 
@@ -29,7 +29,9 @@ public class NewRouteController {
             e.printStackTrace();
         }
         RouteCreatorController routeCreatorController = loader.getController();
-        routeCreatorController.setCurrentDate(timestamp);
+        routeCreatorController.setCurrentDate(startRouteDate);
+        routeCreatorController.setFirstDate(startRouteDate);
+        routeCreatorController.setActualDateText(startRouteDate.toString());
         routeCreatorController.setMainController(mainController);
         mainController.setScreen(pane);
     }
@@ -41,7 +43,7 @@ public class NewRouteController {
 
     public void getTime(){
         LocalDate date = firstDate.getValue();
-        this.timestamp = Timestamp.valueOf(date.atStartOfDay());
+        this.startRouteDate = Timestamp.valueOf(date.atStartOfDay());
     }
 
     public void setMainController(MainController mainController) {

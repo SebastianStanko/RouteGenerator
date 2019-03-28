@@ -36,4 +36,5 @@ public class JSONHandler {
 
         return array;
     }
+    //TODO nadpisać toString
 }

@@ -1,7 +1,7 @@
 package pl.testuj.service;
 
 public enum Type {
-    START("start"),BROADCAST("broadcast"),END("end");
+    start("start"),broadcast("broadcast"),end("end");
 
     private String description;
 
