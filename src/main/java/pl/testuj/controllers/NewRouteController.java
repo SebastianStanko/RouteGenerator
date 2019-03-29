@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.Pane;
+import pl.testuj.validators.NewRouteFormValidator;
 
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -18,22 +19,26 @@ public class NewRouteController {
 
     private MainController mainController;
 
+    NewRouteFormValidator newRouteFormValidator = new NewRouteFormValidator(this);
+
     @FXML
     public void startRoute(){
-        getTime();
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RouteCreator.fxml"));
-        Pane pane = null;
-        try {
-            pane = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(newRouteFormValidator.isDatePicked()) {
+            getTime();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/RouteCreator.fxml"));
+            Pane pane = null;
+            try {
+                pane = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            RouteCreatorController routeCreatorController = loader.getController();
+            routeCreatorController.setCurrentDate(startRouteDate);
+            routeCreatorController.setFirstDate(startRouteDate);
+            routeCreatorController.setActualDateText(startRouteDate.toString());
+            routeCreatorController.setMainController(mainController);
+            mainController.setScreen(pane);
         }
-        RouteCreatorController routeCreatorController = loader.getController();
-        routeCreatorController.setCurrentDate(startRouteDate);
-        routeCreatorController.setFirstDate(startRouteDate);
-        routeCreatorController.setActualDateText(startRouteDate.toString());
-        routeCreatorController.setMainController(mainController);
-        mainController.setScreen(pane);
     }
 
     @FXML
@@ -48,5 +53,9 @@ public class NewRouteController {
 
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public DatePicker getFirstDate() {
+        return firstDate;
     }
 }

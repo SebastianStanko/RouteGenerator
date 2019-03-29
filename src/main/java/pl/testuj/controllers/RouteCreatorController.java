@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import org.json.JSONException;
+import pl.testuj.FXMLcustom.FloatingPointNumbersTextField;
+import pl.testuj.FXMLcustom.NumberTextField;
 import pl.testuj.service.Point;
 import pl.testuj.service.TablePoint;
 import pl.testuj.utils.DateHandler;
@@ -27,13 +29,13 @@ public class RouteCreatorController {
     @FXML
     private ChoiceBox<String> chargingCB;
     @FXML
-    private TextField batteryPowerTF;
+    private NumberTextField batteryPowerTF;
     @FXML
-    private TextField speedTF;
+    private FloatingPointNumbersTextField speedTF;
     @FXML
-    private TextField headingTF;
+    private NumberTextField headingTF;
     @FXML
-    private TextField accuracyTF;
+    private FloatingPointNumbersTextField accuracyTF;
     @FXML
     private ChoiceBox<String> typeCB;
     @FXML
@@ -41,11 +43,11 @@ public class RouteCreatorController {
     @FXML
     private Text actualDateText;
     @FXML
-    private TextField additionalDayTF;
+    private NumberTextField additionalDayTF;
     @FXML
-    private TextField additionalHourTF;
+    private NumberTextField additionalHourTF;
     @FXML
-    private TextField additionalMinuteTF;
+    private NumberTextField additionalMinuteTF;
     @FXML
     private ChoiceBox<String> countryCB;
     @FXML
@@ -106,12 +108,14 @@ public class RouteCreatorController {
                 this.currentDate = new Timestamp(handler.list.get(pointID - 1).getTrackedAt());
                 this.actualDateText.setText(this.currentDate.toString());
                 handler.list.remove(pointID);
+                tableHandler.tableList.remove(pointID);
             }
             else if(pointID == 1){
                 pointID--;
                 this.currentDate = this.firstDate;
                 this.actualDateText.setText(this.currentDate.toString());
                 handler.list.remove(pointID);
+                tableHandler.tableList.remove(pointID);
             }
             else {
                 System.out.println("Usunięto wszystkie punkty");
@@ -120,7 +124,7 @@ public class RouteCreatorController {
 
     @FXML
     private void endRoute() throws JSONException {
-        System.out.println(handler.toJsonArray());
+        System.out.println(handler.toString(handler.toJsonArray()));
     }
 
     private void loadData() {
@@ -151,19 +155,19 @@ public class RouteCreatorController {
         return chargingCB;
     }
 
-    public TextField getBatteryPowerTF() {
+    public NumberTextField getBatteryPowerTF() {
         return batteryPowerTF;
     }
 
-    public TextField getSpeedTF() {
+    public FloatingPointNumbersTextField getSpeedTF() {
         return speedTF;
     }
 
-    public TextField getHeadingTF() {
+    public NumberTextField getHeadingTF() {
         return headingTF;
     }
 
-    public TextField getAccuracyTF() {
+    public FloatingPointNumbersTextField getAccuracyTF() {
         return accuracyTF;
     }
 
@@ -175,15 +179,15 @@ public class RouteCreatorController {
         return registrationNumberTF;
     }
 
-    public TextField getAdditionalDayTF() {
+    public NumberTextField getAdditionalDayTF() {
         return additionalDayTF;
     }
 
-    public TextField getAdditionalHourTF() {
+    public NumberTextField getAdditionalHourTF() {
         return additionalHourTF;
     }
 
-    public TextField getAdditionalMinuteTF() {
+    public NumberTextField getAdditionalMinuteTF() {
         return additionalMinuteTF;
     }
 

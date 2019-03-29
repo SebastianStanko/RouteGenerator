@@ -7,13 +7,12 @@ import pl.testuj.service.Point;
 
 import java.util.ArrayList;
 
-public class JSONHandler {
+public class JSONHandler{
 
     public ArrayList<Point> list = new ArrayList<>();
 
     public JSONArray toJsonArray() throws JSONException {
         JSONArray array = new JSONArray();
-
         for (Point point : list) {
 
             JSONObject element = new JSONObject();
@@ -33,8 +32,12 @@ public class JSONHandler {
 
             array.put(element);
         }
-
         return array;
     }
-    //TODO nadpisać toString
+
+    public String toString(JSONArray jsonArray) {
+        return "{" +
+                "\"positions\": " + jsonArray +
+                '}';
+    }
 }
