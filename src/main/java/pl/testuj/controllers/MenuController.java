@@ -12,7 +12,7 @@ public class MenuController {
 
     @FXML
     public void startNewRoute(){
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/NewRoute.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("fxml/NewRoute.fxml"));
         Pane pane = null;
         try {
             pane = loader.load();

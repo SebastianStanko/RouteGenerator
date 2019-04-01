@@ -129,7 +129,7 @@ public class RouteCreatorController {
     @FXML
     private void endRoute() throws JSONException {
         if(handler.toJsonArray() != null && handler.toJsonArray().length() != 0) {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/FinishedRoute.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("fxml/FinishedRoute.fxml"));
             Pane pane = null;
             try {
                 pane = loader.load();
