@@ -35,7 +35,7 @@ public class JSONHandler{
         return array;
     }
 
-    public String toString(JSONArray jsonArray) {
+    public String toString(String jsonArray) {
         return "{" +
                 "\"positions\": " + jsonArray +
                 '}';

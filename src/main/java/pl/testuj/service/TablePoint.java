@@ -3,10 +3,6 @@ package pl.testuj.service;
 import javafx.beans.property.SimpleStringProperty;
 import pl.testuj.controllers.RouteCreatorController;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class TablePoint {
 
     private SimpleStringProperty trackedAt;
@@ -18,7 +14,7 @@ public class TablePoint {
     public TablePoint(RouteCreatorController controller) {routeCreatorController = controller;}
 
     public void create(){
-        this.trackedAt = new SimpleStringProperty(routeCreatorController.getCurrentDate().toString());
+        this.trackedAt = new SimpleStringProperty(routeCreatorController.getCurrentDate().toString().substring(0,16));
         this.country = new SimpleStringProperty(routeCreatorController.getCountryCB().getValue());
         this.type = new SimpleStringProperty(routeCreatorController.getTypeCB().getValue());
     }
@@ -36,23 +32,23 @@ public class TablePoint {
         return trackedAt.get();
     }
 
-    public void setTrackedAt(String trackedAt) {
-        this.trackedAt.set(trackedAt);
+    public SimpleStringProperty trackedAtProperty() {
+        return trackedAt;
     }
 
     public String getCountry() {
         return country.get();
     }
 
-    public void setCountry(String country) {
-        this.country.set(country);
+    public SimpleStringProperty countryProperty() {
+        return country;
     }
 
     public String getType() {
         return type.get();
     }
 
-    public void setType(String type) {
-        this.type.set(type);
+    public SimpleStringProperty typeProperty() {
+        return type;
     }
 }

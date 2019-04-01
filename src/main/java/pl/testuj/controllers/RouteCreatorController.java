@@ -3,12 +3,15 @@ package pl.testuj.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import org.controlsfx.control.Notifications;
 import org.json.JSONException;
 import pl.testuj.FXMLcustom.FloatingPointNumbersTextField;
 import pl.testuj.FXMLcustom.NumberTextField;
@@ -20,6 +23,7 @@ import pl.testuj.utils.Parser;
 import pl.testuj.utils.TableHandler;
 import pl.testuj.validators.FormValidator;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 
 public class RouteCreatorController {
@@ -124,7 +128,25 @@ public class RouteCreatorController {
 
     @FXML
     private void endRoute() throws JSONException {
-        System.out.println(handler.toString(handler.toJsonArray()));
+        if(handler.toJsonArray() != null && handler.toJsonArray().length() != 0) {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/FinishedRoute.fxml"));
+            Pane pane = null;
+            try {
+                pane = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            FinishedRouteController finishedRouteController = loader.getController();
+            finishedRouteController.setCreatedRouteTf(handler.toString(handler.toJsonArray().toString(1)));
+            finishedRouteController.setMainController(mainController);
+            mainController.setScreen(pane);
+        }
+        else{
+            Notifications.create()
+                    .title("Generator Tras")
+                    .text("Trasa musi zawierać co najmniej jeden punkt!")
+                    .showWarning();
+        }
     }
 
     private void loadData() {
