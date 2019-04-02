@@ -27,28 +27,4 @@ public class TablePoint {
                 ", type='" + type + '\'' +
                 '}';
     }
-
-    public String getTrackedAt() {
-        return trackedAt.get();
-    }
-
-    public SimpleStringProperty trackedAtProperty() {
-        return trackedAt;
-    }
-
-    public String getCountry() {
-        return country.get();
-    }
-
-    public SimpleStringProperty countryProperty() {
-        return country;
-    }
-
-    public String getType() {
-        return type.get();
-    }
-
-    public SimpleStringProperty typeProperty() {
-        return type;
-    }
 }

@@ -21,7 +21,6 @@ public class FinishedRouteController {
     @FXML
     public void saveToFile()  {
         try (PrintWriter out = new PrintWriter("route.json")) {
-            //System.getProperty("user.home") + "/Desktop"; - zapisywanie na pulpicie
             out.println(createdRouteTf.getText());
             Notifications.create()
                     .title("Generator Tras")

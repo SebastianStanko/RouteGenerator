@@ -65,9 +65,7 @@ public class Point {
 
     public String getDateString(String format) {
         DateFormat sdf = new SimpleDateFormat(format);
-//        sdf.setTimeZone(TimeZone.getTimeZone(timezone));
         Date date = new Date(getTrackedAt());
-
         return sdf.format(date);
     }
 

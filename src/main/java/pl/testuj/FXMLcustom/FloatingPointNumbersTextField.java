@@ -1,6 +1,5 @@
 package pl.testuj.FXMLcustom;
 
-
 import javafx.scene.control.TextField;
 
 public class FloatingPointNumbersTextField extends TextField {
@@ -20,5 +19,4 @@ public class FloatingPointNumbersTextField extends TextField {
     public void replaceSelection(String replacement) {
         super.replaceSelection(replacement);
     }
-
 }

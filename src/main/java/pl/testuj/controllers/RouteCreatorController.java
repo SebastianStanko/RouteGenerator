@@ -96,12 +96,7 @@ public class RouteCreatorController {
             tablePoint.create();
             tableHandler.tableList.add(tablePoint);
 
-
             actualDateText.setText(currentDate.toString());
-            System.out.println(tablePoint.toString());
-            System.out.println(point);
-        } else {
-            System.out.println("Nie przeszło");
         }
     }
 
@@ -129,7 +124,7 @@ public class RouteCreatorController {
     @FXML
     private void endRoute() throws JSONException {
         if(handler.toJsonArray() != null && handler.toJsonArray().length() != 0) {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("fxml/FinishedRoute.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/FXML/FinishedRoute.fxml"));
             Pane pane = null;
             try {
                 pane = loader.load();

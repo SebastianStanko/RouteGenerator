@@ -19,5 +19,4 @@ public class NumberTextField extends TextField {
     public void replaceSelection(String replacement) {
         super.replaceSelection(replacement);
     }
-
 }

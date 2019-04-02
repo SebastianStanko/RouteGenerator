@@ -25,7 +25,7 @@ public class NewRouteController {
     public void startRoute(){
         if(newRouteFormValidator.isDatePicked()) {
             getTime();
-            FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("fxml/RouteCreator.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/FXML/RouteCreator.fxml"));
             Pane pane = null;
             try {
                 pane = loader.load();
