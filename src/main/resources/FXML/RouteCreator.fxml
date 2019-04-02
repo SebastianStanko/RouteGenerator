@@ -9,8 +9,9 @@
 <?import javafx.scene.text.Text?>
 <?import pl.testuj.FXMLcustom.* ?>
 
-<?import javafx.scene.control.TableView?>
+
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.testuj.controllers.RouteCreatorController">
    <children>
       <Button fx:id="createPointBtn" layoutX="227.0" layoutY="176.0" mnemonicParsing="false" onAction="#createPoint" prefHeight="17.0" prefWidth="110.0" text="Utwórz punkt" />

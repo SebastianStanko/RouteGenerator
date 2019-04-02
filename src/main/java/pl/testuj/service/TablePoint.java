@@ -27,4 +27,16 @@ public class TablePoint {
                 ", type='" + type + '\'' +
                 '}';
     }
+
+    public SimpleStringProperty trackedAtProperty() {
+        return trackedAt;
+    }
+
+    public SimpleStringProperty countryProperty() {
+        return country;
+    }
+
+    public SimpleStringProperty typeProperty() {
+        return type;
+    }
 }
