@@ -39,7 +39,7 @@ public class RouteCreatorController {
     @FXML
     private NumberTextField headingTF;
     @FXML
-    private FloatingPointNumbersTextField accuracyTF;
+    private NumberTextField accuracyTF;
     @FXML
     private ChoiceBox<String> typeCB;
     @FXML
@@ -96,7 +96,7 @@ public class RouteCreatorController {
             tablePoint.create();
             tableHandler.tableList.add(tablePoint);
 
-            actualDateText.setText(currentDate.toString());
+            actualDateText.setText(currentDate.toString().substring(0,16));
         }
     }
 
@@ -105,19 +105,16 @@ public class RouteCreatorController {
             if (pointID > 1) {
                 pointID--;
                 this.currentDate = new Timestamp(handler.list.get(pointID - 1).getTrackedAt());
-                this.actualDateText.setText(this.currentDate.toString());
+                this.actualDateText.setText(this.currentDate.toString().substring(0,16));
                 handler.list.remove(pointID);
                 tableHandler.tableList.remove(pointID);
             }
             else if(pointID == 1){
                 pointID--;
                 this.currentDate = this.firstDate;
-                this.actualDateText.setText(this.currentDate.toString());
+                this.actualDateText.setText(this.currentDate.toString().substring(0,16));
                 handler.list.remove(pointID);
                 tableHandler.tableList.remove(pointID);
-            }
-            else {
-                System.out.println("Usunięto wszystkie punkty");
             }
     }
 
@@ -184,7 +181,7 @@ public class RouteCreatorController {
         return headingTF;
     }
 
-    public FloatingPointNumbersTextField getAccuracyTF() {
+    public NumberTextField getAccuracyTF() {
         return accuracyTF;
     }
 

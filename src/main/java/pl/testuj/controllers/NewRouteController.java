@@ -35,7 +35,7 @@ public class NewRouteController {
             RouteCreatorController routeCreatorController = loader.getController();
             routeCreatorController.setCurrentDate(startRouteDate);
             routeCreatorController.setFirstDate(startRouteDate);
-            routeCreatorController.setActualDateText(startRouteDate.toString());
+            routeCreatorController.setActualDateText(startRouteDate.toString().substring(0,16));
             routeCreatorController.setMainController(mainController);
             mainController.setScreen(pane);
         }
