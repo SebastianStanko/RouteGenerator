@@ -17,6 +17,7 @@ public class Main extends Application {
         Scene scene = new Scene(stackPane, 350, 400);
         scene.getStylesheets().add(getClass().getResource("/CSS/fontCustom").toExternalForm());
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.setTitle("Generator Tras");
         primaryStage.show();
     }
